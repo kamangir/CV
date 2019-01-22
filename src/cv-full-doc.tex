@@ -1,0 +1,63 @@
+% Arash Abadpour, CV - Full Version, prepared for html conversion
+% Version 1.00 - Maintained by Arash Abadpour
+
+\documentclass[12pt,a4paper]{moderncv}
+\moderncvtheme[grey]{casual}%classical/casual, roman, blue/orange/red/green/grey
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}
+% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
+
+\renewcommand{\firstname}[1]{First Name#1}
+\renewcommand{\familyname}[1]{Last Name: #1}
+\renewcommand{\mobile}[1]{Phone: #1}
+\renewcommand{\email}[1]{email: #1}
+\renewcommand{\extrainfo}[1]{Website: #1}
+\renewcommand{\cvline}[2]{#2\newline }
+\renewcommand{\cventry}[6]{#1 - #2, #3 #6\newline }
+\renewcommand{\cvlistitem}[1]{#1\newline }
+
+% personal data
+\firstname{Arash}
+\familyname{Abadpour}
+\title{Resume}
+\mobile{+1 647 567 3487}
+\email{arash@abadpour.com}
+\extrainfo{http://abadpour.com}
+
+\begin{document}
+\maketitle
+
+\input{_education.tex}
+
+\input{_fields.tex}
+
+\input{_languages.tex}
+
+\input{_skills.tex}
+
+\input{_honors.tex}
+
+\newpage
+\input{_community.tex}
+
+\input{_courses.tex}
+
+\section{Experience}
+\input{_professional.tex}
+\input{_ra.tex}
+\input{_ta.tex}
+\input{_prof.tex}
+
+\input{_patents.tex}
+
+\input{_papers.tex}
+
+\emph{\textbf{References are available upon request.}}
+
+\vspace{0.5cm}
+\emph{Updated: June 2014.}
+
+\end{document}

@@ -1,0 +1,60 @@
+% Arash Abadpour, CV - Full Version
+% Revision 2.23 - Maintained by Arash Abadpour
+
+\documentclass[12pt,a4paper]{moderncv}
+\moderncvtheme[grey]{casual}%classical/casual, roman, blue/orange/red/green/grey
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}
+% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
+\input{definitions.tex}
+
+% personal data
+\firstname{Arash}
+\familyname{Abadpour}
+\title{Resume}
+\mobile{+1 647 567 3487}
+\email{arash@abadpour.com}
+\extrainfo{http://abadpour.com}
+
+\begin{document}
+\maketitle
+
+\input{_education.tex}
+
+\input{_certificates.tex}
+
+\clearpage
+\input{_fields.tex}
+
+\clearpage
+\input{_patents.tex}
+
+%\input{_languages.tex}
+
+\input{_skills.tex}
+
+%\input{_courses.tex}
+
+\section{Employment History}
+\input{_professional.tex}
+\input{_ra.tex}
+\input{_ta.tex}
+\input{_prof.tex}
+
+\input{_honors.tex}
+
+\input{_papers.tex}
+
+\input{_community.tex}
+
+\emph{\textbf{References are available upon request.}}
+
+\vspace{0.5cm}
+\emph{Last Update:\space~January 22, 2019}
+
+\emph{Build Date:\space\today}
+
+\end{document}
