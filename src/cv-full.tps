@@ -14,11 +14,11 @@ NormalPos.top=26
 NormalPos.right=1916
 NormalPos.bottom=750
 Class=LaTeXView
-Document=cv.tex
+Document=cv-full.tex
 
 [Frame0_View0,0]
-TopLine=6
-Cursor=773
+TopLine=18
+Cursor=797
 
 [SessionInfo]
 FrameCount=1
