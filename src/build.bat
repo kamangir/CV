@@ -1,5 +1,5 @@
-call ..\..\mypy\latex2pdf cv.tex %cd%\ -bibtex
-copy /y cv.pdf ..\
+bash ../../mypy/latex2pdf.sh cv.tex ./ -bibtex
+cp /y cv.pdf ../
 
-call ..\..\mypy\latex2pdf cv-full.tex %cd%\ -bibtex
-copy /y cv-full.pdf ..\
+bash ../../mypy/latex2pdf.sh cv-full.tex ./ -bibtex
+cp cv-full.pdf ../
