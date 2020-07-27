@@ -11,5 +11,5 @@ for filename in cv cv_full; do
 
     "ps2pdf" $filename.ps
 
-    cp $filename.pdf ../
+    mv $filename.pdf ../
 end
