@@ -20,4 +20,6 @@ git status
 
 git commit -a -m "cv rebuilt"; git push
 
-ls ../*.pdf
+pushd ..
+ls -la *.pdf
+popd
