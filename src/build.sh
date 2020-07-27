@@ -12,4 +12,8 @@ for filename in cv cv-full kamangir-resume; do
     "ps2pdf" $filename.ps
 
     mv $filename.pdf ../
+
+    git add ../$filename.pdf
 done
+
+git commit -m "cv rebuilt"; git push
