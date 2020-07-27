@@ -1,4 +1,4 @@
-for filename in cv cv_full; do
+for filename in cv cv_full kamangir_resume; do
     rm $filename.dvi
     rm $filename.ps
     rm $filename.pdf
