@@ -1,4 +1,4 @@
-for filename in cv cv_full kamangir_resume; do
+for filename in cv cv_full; do
     rm $filename.dvi
     rm $filename.ps
     rm $filename.pdf
@@ -12,4 +12,4 @@ for filename in cv cv_full kamangir_resume; do
     "ps2pdf" $filename.ps
 
     mv $filename.pdf ../
-end
+done
