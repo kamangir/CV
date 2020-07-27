@@ -16,4 +16,6 @@ for filename in cv cv-full kamangir-resume; do
     git add ../$filename.pdf
 done
 
+git status
+
 git commit -a -m "cv rebuilt"; git push
