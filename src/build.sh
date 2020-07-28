@@ -1,3 +1,9 @@
+if [ -z "$1" ] || [ "$1" = "a.txt" ]; then
+      echo "yes"
+fi
+
+exit 1
+
 for filename in cv cv-full kamangir-resume; do
     rm $filename.dvi
     rm $filename.ps
