@@ -3,6 +3,8 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+python build.py
+
 for filename in cv cv-full kamangir-resume; do
     if [ -z "$2" ] || [ "$2" = "$filename" ]; then
         echo "=== $filename =========="
