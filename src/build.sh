@@ -1,25 +1,22 @@
-if [ -z "$1" ] || [ "$1" = "a.txt" ]; then
-      echo "yes"
-fi
-
-exit 1
-
 for filename in cv cv-full kamangir-resume; do
-    rm $filename.dvi
-    rm $filename.ps
-    rm $filename.pdf
+    if [ -z "$1" ] || [ "$1" = "$filename" ]; then
+        echo "=== $filename =========="
+        rm $filename.dvi
+        rm $filename.ps
+        rm $filename.pdf
 
-    "latex" -interaction=nonstopmode $filename.tex
+        "latex" -interaction=nonstopmode $filename.tex
 
-    "makeindex"$filename.idx
+        "makeindex"$filename.idx
 
-    "dvips" -o $filename.ps $filename.dvi
+        "dvips" -o $filename.ps $filename.dvi
 
-    "ps2pdf" $filename.ps
+        "ps2pdf" $filename.ps
 
-    mv $filename.pdf ../
+        mv $filename.pdf ../
 
-    git add ../$filename.pdf
+        git add ../$filename.pdf
+    fi
 done
 
 git status
