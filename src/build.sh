@@ -12,13 +12,13 @@ for filename in cv cv-full kamangir-resume; do
         rm $filename.ps
         rm $filename.pdf
 
-        "latex" -interaction=nonstopmode $filename.tex
+        "latex" -interaction=nonstopmode $filename.tex >> $filename.latex.log
 
-        "makeindex"$filename.idx
+        "makeindex"$filename.idx >> $filename.makeindex.log
 
-        "dvips" -o $filename.ps $filename.dvi
+        "dvips" -o $filename.ps $filename.dvi >> $filename.dvips.log
 
-        "ps2pdf" $filename.ps
+        "ps2pdf" $filename.ps >> $filename.ps2pdf.log
 
         mv $filename.pdf ../
 
