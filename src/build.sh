@@ -37,4 +37,4 @@ git status
 git commit -a -m "$1"; git push
 popd
 
-python build.py
+python upload.py

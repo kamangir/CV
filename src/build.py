@@ -18,7 +18,9 @@ if success:
     new_revision = current_revision[0] + 0.01
     print(f"new revision: {new_revision:.2f}")
 
-    _revision_tex = [string.replace(f"{current_revision[0]:.2f}", f"{new_revision:.2f}") for string in _revision_tex]
+    _revision_tex = [
+        string.replace(f"{current_revision[0]:.2f}", f"{new_revision:.2f}") for string in _revision_tex if string
+    ]
     print(f"_revision_tex: {'|'.join(_revision_tex)}")
 
     success = File.save_text("_revision.tex", _revision_tex)
