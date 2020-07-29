@@ -33,5 +33,7 @@ git status
 git commit -a -m "$1"; git push
 
 pushd ..
+cp cv.pdf Arash-Abadpour-Resume.pdf
+cp cv-full.pdf Arash-Abadpour-Resume-Full-Version.pdf
 ls -la *.pdf
 popd
