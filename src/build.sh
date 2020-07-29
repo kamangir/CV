@@ -29,7 +29,7 @@ pushd ..
 cp cv.pdf Arash-Abadpour-Resume.pdf
 cp cv-full.pdf Arash-Abadpour-Resume-Full-Version.pdf
 
-git add ../*.pdf
+git add *.pdf
 
 git status
 
