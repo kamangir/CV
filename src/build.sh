@@ -28,7 +28,7 @@ done
 
 pushd ..
 mv cv.pdf arash-abadpour-resume.pdf
-mv cv-full.pdf arash-abadpour-resume-full-version.pdf
+mv cv-full.pdf arash-abadpour-resume-full.pdf
 
 git add *.pdf
 
