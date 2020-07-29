@@ -12,7 +12,6 @@ for filename in cv cv-full kamangir-resume; do
         echo "=== $filename =========="
         rm $filename.dvi
         rm $filename.ps
-        rm $filename.pdf
 
         "latex" -interaction=nonstopmode $filename.tex >> $filename.latex.log
 
