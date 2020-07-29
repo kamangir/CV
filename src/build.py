@@ -6,7 +6,7 @@ import String
 
 success, _revision_tex = File.load_text("_revision.tex")
 if success:
-    current_revision = [float(String.after(string, "\\space")) for string in _revision_tex if "Revision" in string]
+    current_revision = [float(string.split("\\space")[1]) for string in _revision_tex if "revision" in string]
     success = len(current_revision) == 1
     if not success:
         print(f"{len(current_revision)} current revision(s).")
