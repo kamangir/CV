@@ -4,6 +4,7 @@ if [ -z "$1" ]; then
 fi
 
 python build.py
+git add _revision.tex
 
 rm ../*.pdf
 
