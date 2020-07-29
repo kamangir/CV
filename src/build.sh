@@ -5,6 +5,8 @@ fi
 
 python build.py
 
+rm ../*.pdf
+
 for filename in cv cv-full kamangir-resume; do
     if [ -z "$2" ] || [ "$2" = "$filename" ]; then
         echo "=== $filename =========="
