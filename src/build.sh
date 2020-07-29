@@ -27,8 +27,8 @@ for filename in cv cv-full kamangir-resume; do
 done
 
 pushd ..
-cp cv.pdf Arash-Abadpour-Resume.pdf
-cp cv-full.pdf Arash-Abadpour-Resume-Full-Version.pdf
+cp cv.pdf arash-abadpour-resume.pdf
+cp cv-full.pdf arash-abadpour-resume-full-version.pdf
 
 git add *.pdf
 
