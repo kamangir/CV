@@ -35,6 +35,6 @@ git add *.pdf
 git status
 
 git commit -a -m "$1"; git push
-
-ls -la *.pdf
 popd
+
+python build.py
