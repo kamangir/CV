@@ -23,10 +23,10 @@ for filename in cv cv-full kamangir-resume; do
         "ps2pdf" $filename.ps >> $filename.ps2pdf.log
 
         mv $filename.pdf ../
-
-        git add ../$filename.pdf
     fi
 done
+
+git add ../*.pdf
 
 git status
 
