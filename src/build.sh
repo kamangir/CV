@@ -26,14 +26,15 @@ for filename in cv cv-full kamangir-resume; do
     fi
 done
 
+pushd ..
+cp cv.pdf Arash-Abadpour-Resume.pdf
+cp cv-full.pdf Arash-Abadpour-Resume-Full-Version.pdf
+
 git add ../*.pdf
 
 git status
 
 git commit -a -m "$1"; git push
 
-pushd ..
-cp cv.pdf Arash-Abadpour-Resume.pdf
-cp cv-full.pdf Arash-Abadpour-Resume-Full-Version.pdf
 ls -la *.pdf
 popd
