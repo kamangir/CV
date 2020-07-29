@@ -1,5 +1,5 @@
 if [ -z "$1" ]; then
-    echo "./build.sh #xyz [cv/cv-full/kamangir-resume]"
+    echo "./build.sh #xyz [cv/cv-full]"
     exit 1
 fi
 
@@ -8,7 +8,7 @@ git add _revision.tex
 
 rm ../*.pdf
 
-for filename in cv cv-full kamangir-resume; do
+for filename in cv cv-full; do
     if [ -z "$2" ] || [ "$2" = "$filename" ]; then
         echo "=== $filename =========="
         rm $filename.dvi
@@ -27,8 +27,8 @@ for filename in cv cv-full kamangir-resume; do
 done
 
 pushd ..
-cp cv.pdf arash-abadpour-resume.pdf
-cp cv-full.pdf arash-abadpour-resume-full-version.pdf
+mv cv.pdf arash-abadpour-resume.pdf
+mv cv-full.pdf arash-abadpour-resume-full-version.pdf
 
 git add *.pdf
 
