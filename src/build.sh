@@ -38,3 +38,5 @@ git commit -a -m "$1"; git push
 popd
 
 python upload.py
+
+open abadpour_com_intro.txt
