@@ -1,8 +1,10 @@
+import functools
 import sys
 
 sys.path.append("../../mypy")
 import File
 import String
+
 
 success, _revision_tex = File.load_text("_revision.tex")
 
@@ -31,10 +33,42 @@ if success:
     success, _opening_statement = File.load_text("_opening_statement.tex")
 
 if success:
-    abadpour_com_intro = [string for string in _opening_statement if not string.startswith("%")]
+    abadpour_com_intro = [
+        string
+        for string in [
+            functools.reduce(
+                lambda a, b: a.replace(b, " "),
+                [
+                    "\\newcommand",
+                    "\\osspacing",
+                    "\\vspace{0.5cm}",
+                    "\\vspace{0.8cm}",
+                    "\\onehalfspace",
+                    "\\textbf",
+                    "\\singlespace",
+                    "{ }",
+                ],
+                string.replace("\t", ""),
+            )
+            for string in _opening_statement
+            if (not string.startswith("%")) and ("\\large" not in string)
+        ]
+        if string
+    ]
 
-    success = File.save_text(abadpour_com_intro, "abadpour_com_intro.txt")
+    abadpour_com_intro = [
+        string.replace("\\url{", '<a href="').replace("}{", '">').replace("}", "</a>") for string in abadpour_com_intro
+    ]
 
+    success = File.save_text(
+        "abadpour_com_intro.txt",
+        [
+            'My name is Arash Abadpour and this is my story (<a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume.pdf">resume</a>, <a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume-full.pdf">resume + publications</a>):',
+            "",
+        ]
+        + abadpour_com_intro
+        + ["", f"-- last updated: {String.pretty_date('~time')}"],
+    )
 
 print("failure,success".split(",")[int(success)])
 
