@@ -37,9 +37,8 @@ git status
 git commit -a -m "$1"; git push
 
 for filename in *.pdf; do
-	echo "$filename"
+    aws s3 cp $filename s3://abadpour-com/cv/$filename
 done
-#aws s3 cp $filename s3://abadpour-com/cv/$filename
 
 popd
 
