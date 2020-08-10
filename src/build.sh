@@ -35,8 +35,12 @@ git add *.pdf
 git status
 
 git commit -a -m "$1"; git push
+
+for filename in *.pdf; do
+	echo "$filename"
+done
+#aws s3 cp $filename s3://abadpour-com/cv/$filename
+
 popd
 
-#python upload.py
-
-open abadpour_com_intro.txt
+# open abadpour_com_intro.txt
