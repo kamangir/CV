@@ -3,13 +3,17 @@ import sys
 
 sys.path.append("../../mypy")
 import File
-import String
+import mypy.string
 
 
 success, _revision_tex = File.load_text("_revision.tex")
 
 if success:
-    current_revision = [float(string.split("\\space")[1]) for string in _revision_tex if "revision" in string]
+    current_revision = [
+        float(string.split("\\space")[1])
+        for string in _revision_tex
+        if "revision" in string
+    ]
 
     success = len(current_revision) == 1
     if not success:
@@ -23,7 +27,9 @@ if success:
     print(f"new revision: {new_revision:.2f}")
 
     _revision_tex = [
-        string.replace(f"{current_revision:.2f}", f"{new_revision:.2f}") for string in _revision_tex if string
+        string.replace(f"{current_revision:.2f}", f"{new_revision:.2f}")
+        for string in _revision_tex
+        if string
     ]
     print(f"_revision_tex: {'|'.join(_revision_tex)}")
 
@@ -57,7 +63,8 @@ if success:
     ]
 
     abadpour_com_intro = [
-        string.replace("\\url{", '<a href="').replace("}{", '">').replace("}", "</a>") for string in abadpour_com_intro
+        string.replace("\\url{", '<a href="').replace("}{", '">').replace("}", "</a>")
+        for string in abadpour_com_intro
     ]
 
     success = File.save_text(
@@ -67,7 +74,7 @@ if success:
             "",
         ]
         + abadpour_com_intro
-        + ["", f"-- last updated: {String.pretty_date('~time')}"],
+        + ["", f"-- last updated: {mypy.string.pretty_date('~time')}"],
     )
 
 print("failure,success".split(",")[int(success)])
