@@ -3,7 +3,7 @@ import sys
 
 sys.path.append("../../mypy")
 import File
-import mypy.string
+import utils.string
 
 
 success, _revision_tex = File.load_text("_revision.tex")
@@ -74,7 +74,7 @@ if success:
             "",
         ]
         + abadpour_com_intro
-        + ["", f"-- last updated: {mypy.string.pretty_date('~time')}"],
+        + ["", f"-- last updated: {utils.string.pretty_date('~time')}"],
     )
 
 print("failure,success".split(",")[int(success)])
