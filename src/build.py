@@ -1,12 +1,9 @@
-import functools
-import sys
-
-sys.path.append("../../mypy")
-import File
 import utils.string
+import utils.file
+import functools
 
 
-success, _revision_tex = File.load_text("_revision.tex")
+success, _revision_tex = utils.file.load_text("_revision.tex")
 
 if success:
     current_revision = [
@@ -33,10 +30,11 @@ if success:
     ]
     print(f"_revision_tex: {'|'.join(_revision_tex)}")
 
-    success = File.save_text("_revision.tex", _revision_tex)
+    success = utils.file.save_text("_revision.tex", _revision_tex)
 
 if success:
-    success, _opening_statement = File.load_text("_opening_statement.tex")
+    success, _opening_statement = utils.file.load_text(
+        "_opening_statement.tex")
 
 if success:
     abadpour_com_intro = [
@@ -63,11 +61,12 @@ if success:
     ]
 
     abadpour_com_intro = [
-        string.replace("\\url{", '<a href="').replace("}{", '">').replace("}", "</a>")
+        string.replace("\\url{", '<a href="').replace(
+            "}{", '">').replace("}", "</a>")
         for string in abadpour_com_intro
     ]
 
-    success = File.save_text(
+    success = utils.file.save_text(
         "abadpour_com_intro.txt",
         [
             'My name is Arash Abadpour and this is my story (<a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume.pdf">resume</a>, <a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume-full.pdf">resume + publications</a>, <a href="https://www.linkedin.com/feed/">linkedin</a>):',
@@ -78,4 +77,3 @@ if success:
     )
 
 print("failure,success".split(",")[int(success)])
-
