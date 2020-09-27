@@ -3,7 +3,10 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+export PYTHONPATH=${HOME}/git/mypy
+
 python build.py
+
 git add _revision.tex
 
 rm ../*.pdf
