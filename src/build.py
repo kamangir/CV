@@ -1,9 +1,9 @@
-import utils.string
-import utils.file
+import bolt.string
+import bolt.file
 import functools
 
 
-success, _revision_tex = utils.file.load_text("_revision.tex")
+success, _revision_tex = bolt.file.load_text("_revision.tex")
 
 if success:
     current_revision = [
@@ -30,11 +30,10 @@ if success:
     ]
     print(f"_revision_tex: {'|'.join(_revision_tex)}")
 
-    success = utils.file.save_text("_revision.tex", _revision_tex)
+    success = bolt.file.save_text("_revision.tex", _revision_tex)
 
 if success:
-    success, _opening_statement = utils.file.load_text(
-        "_opening_statement.tex")
+    success, _opening_statement = bolt.file.load_text("_opening_statement.tex")
 
 if success:
     abadpour_com_intro = [
@@ -61,19 +60,18 @@ if success:
     ]
 
     abadpour_com_intro = [
-        string.replace("\\url{", '<a href="').replace(
-            "}{", '">').replace("}", "</a>")
+        string.replace("\\url{", '<a href="').replace("}{", '">').replace("}", "</a>")
         for string in abadpour_com_intro
     ]
 
-    success = utils.file.save_text(
+    success = bolt.file.save_text(
         "abadpour_com_intro.txt",
         [
             'My name is Arash Abadpour and this is my story (<a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume.pdf">resume</a>, <a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume-full.pdf">resume + publications</a>, <a href="https://www.linkedin.com/feed/">linkedin</a>):',
             "",
         ]
         + abadpour_com_intro
-        + ["", f"-- last updated: {utils.string.pretty_date('~time')}"],
+        + ["", f"-- last updated: {bolt.string.pretty_date('~time')}"],
     )
 
 print("failure,success".split(",")[int(success)])
