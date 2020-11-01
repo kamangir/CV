@@ -3,7 +3,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-export PYTHONPATH=${HOME}/git/mypy
+export PYTHONPATH=${HOME}/git/bolt
 
 python build.py
 
