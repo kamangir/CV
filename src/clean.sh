@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 rm *.aux
 rm *.dvi
 rm *.log
