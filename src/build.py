@@ -14,7 +14,7 @@ if success:
 
     success = len(current_revision) == 1
     if not success:
-        print(f"{len(current_revision)} current revision(s).")
+        print(f"{len(current_revision)} current revision(s) found.")
 
 if success:
     current_revision = current_revision[0]
