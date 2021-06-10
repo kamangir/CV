@@ -44,5 +44,3 @@ for filename in *.pdf; do
 done
 
 popd
-
-# open abadpour_com_intro.txt
