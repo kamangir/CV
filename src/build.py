@@ -67,11 +67,11 @@ if success:
     success = file.save_text(
         "abadpour_com_intro.txt",
         [
-            'My name is Arash Abadpour and this is my story (<a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume.pdf">resume</a>, <a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume-full.pdf">resume + publications</a>, <a href="https://www.linkedin.com/feed/">linkedin</a>):',
+            'My name is Arash and this is my story - more info in my (<a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume.pdf">resume</a>, <a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume-full.pdf">resume + publications</a>, <a href="https://www.linkedin.com/feed/">linkedin</a>):',
             "",
         ]
         + abadpour_com_intro
-        + ["", f"-- last updated: {string.pretty_date('~time')}"],
+        + ["", f"- last update: {string.pretty_date('~time')}"],
     )
 
 print("failure,success".split(",")[int(success)])
