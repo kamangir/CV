@@ -1,9 +1,9 @@
-import bolt.string
-import bolt.file
+import bolt.string as string
+import bolt.file as file
 import functools
 
 
-success, _revision_tex = bolt.file.load_text("_revision.tex")
+success, _revision_tex = file.load_text("_revision.tex")
 
 if success:
     current_revision = [
@@ -71,7 +71,7 @@ if success:
             "",
         ]
         + abadpour_com_intro
-        + ["", f"-- last updated: {bolt.string.pretty_date('~time')}"],
+        + ["", f"-- last updated: {string.pretty_date('~time')}"],
     )
 
 print("failure,success".split(",")[int(success)])
