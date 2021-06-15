@@ -71,7 +71,6 @@ if success:
             "",
         ]
         + abadpour_com_intro
-        + ["", f"- last update: {string.pretty_date('~time')}"],
     )
 
 print("failure,success".split(",")[int(success)])
