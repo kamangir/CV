@@ -60,7 +60,7 @@ if success:
     ]
 
     abadpour_com_intro = [
-        string.replace("\\url{", '<a href="').replace("}{", '">').replace("}", "</a>")
+        string.replace("\\href{", '<a href="').replace("}{", '">').replace("}", "</a>")
         for string in abadpour_com_intro
     ]
 
