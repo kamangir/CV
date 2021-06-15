@@ -67,7 +67,7 @@ if success:
     success = file.save_text(
         "abadpour_com_intro.txt",
         [
-            'My name is Arash and this is my story - more info in my (<a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume.pdf">resume</a>, <a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume-full.pdf">resume + publications</a>, and <a href="https://www.linkedin.com/feed/">linkedin</a>).',
+            'My name is Arash and this is my story - more info in my <a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume.pdf">resume</a>, <a href="https://abadpour-com.s3.ca-central-1.amazonaws.com/cv/arash-abadpour-resume-full.pdf">resume + publications</a>, and <a href="https://www.linkedin.com/feed/">linkedin</a>.',
             "",
         ]
         + abadpour_com_intro
