@@ -54,7 +54,7 @@ if success:
                 string.replace("\t", ""),
             )
             for string in _opening_statement
-            if (not string.startswith("%")) and ("\\large" not in string)
+            if not string.startswith("%")
         ]
         if string
     ]
