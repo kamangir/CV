@@ -25,7 +25,7 @@ function bolt_CV() {
 
         pushd $bolt_path_git/CV/src > /dev/null
 
-        python3 -m CV
+        python3 -m CV build
 
         git add _revision.tex
 
