@@ -29,7 +29,7 @@ function bolt_CV() {
 
         git add _revision.tex
 
-        rm ../*.pdf
+        rm ../pdf/*.pdf
 
         local filename
         for filename in cv cv-full; do
@@ -40,7 +40,7 @@ function bolt_CV() {
 
                 "latex" -interaction=nonstopmode $filename.tex >> $filename.latex.log
 
-                "makeindex"$filename.idx >> $filename.makeindex.log
+                "makeindex" $filename.idx >> $filename.makeindex.log
 
                 "dvips" -o $filename.ps $filename.dvi >> $filename.dvips.log
 
