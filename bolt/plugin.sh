@@ -59,8 +59,8 @@ function bolt_CV() {
 
         git status
 
-        local message="${@:2}"
-        git commit -a -m "bolt build - $message"
+        local message="${@:2}" 
+        git commit -a -m "bolt build $message"
 
         git push
 
