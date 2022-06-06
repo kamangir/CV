@@ -52,6 +52,9 @@ function bolt_CV() {
 
         cd ..
 
+        mv pdf/cv.pdf pdf/arash-abadpour-resume.pdf
+        mv pdf/cv-full.pdf pdf/arash-abadpour-resume-full.pdf
+
         git add .
 
         git status
