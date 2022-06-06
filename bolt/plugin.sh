@@ -70,7 +70,7 @@ function bolt_CV() {
     fi
 
     if [ "$task" == "clean" ] ; then
-        pushd $bolt_path_git/CV > /dev/null
+        pushd $bolt_path_git/CV/src > /dev/null
         rm *.aux
         rm *.dvi
         rm *.log
