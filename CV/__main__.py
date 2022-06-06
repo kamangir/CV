@@ -10,7 +10,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-parser = argparse.ArgumentParser(description="CV-{:.2f}".format(version))
+parser = argparse.ArgumentParser("CV", description="CV-{:.2f}".format(version))
 parser.add_argument("task", type=str, help="build")
 args = parser.parse_args()
 
