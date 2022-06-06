@@ -1,8 +1,3 @@
 # CV
 
-to build run:
-
-```
-cd ~/git/CV/src
-bash ./build.sh
-```
+a [bolt](https://github.com/kamangir/bolt) plugin for CV.
