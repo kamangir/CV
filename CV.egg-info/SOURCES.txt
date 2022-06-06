@@ -1,9 +1,0 @@
-README.md
-setup.py
-CV/__init__.py
-CV/__main__.py
-CV/build.py
-CV.egg-info/PKG-INFO
-CV.egg-info/SOURCES.txt
-CV.egg-info/dependency_links.txt
-CV.egg-info/top_level.txt
