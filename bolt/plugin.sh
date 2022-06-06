@@ -10,6 +10,11 @@ function bolt_CV() {
             "clean CV."
         bolt_help_line "CV terraform" \
             "terraform CV."
+
+
+        if [ "$(bolt_keyword_is $2 verbose)" == true ] ; then
+            python3 -m CV --help
+        fi
         return
     fi
 
