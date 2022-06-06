@@ -46,25 +46,22 @@ function bolt_CV() {
 
                 "ps2pdf" $filename.ps >> $filename.ps2pdf.log
 
-                mv $filename.pdf ../
+                mv $filename.pdf ../pdf/
             fi
         done
-        popd > /dev/null
 
-        pushd $bolt_path_git/CV > /dev/null
+        cd ..
 
-        mv cv.pdf arash-abadpour-resume.pdf
-        mv cv-full.pdf arash-abadpour-resume-full.pdf
-
-        git add *.pdf
+        git add .
 
         git status
 
         local message="${@:2}"
-        git commit -a -m "$1"
+        git commit -a -m "bolt build - $message"
 
         git push
 
+        cd pdf
         local filename
         for filename in *.pdf; do
             aws s3 cp $filename s3://abadpour-com/cv/$filename
