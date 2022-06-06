@@ -8,6 +8,8 @@ function bolt_CV() {
             "build CV [and commit w/ message]."
         bolt_help_line "CV clean" \
             "clean CV."
+        bolt_help_line "CV terraform" \
+            "terraform CV."
         return
     fi
 
@@ -75,6 +77,11 @@ function bolt_CV() {
         rm *.out
         rm *.ps
         popd > /dev/null
+        return
+    fi
+
+    if [ "$task" == "terraform" ] ; then
+        bolt_git terraform CV
         return
     fi
 
