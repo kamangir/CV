@@ -90,5 +90,5 @@ function bolt_CV() {
         return
     fi
 
-    bolt_error "unknown task: CV '$task'."
+    bolt_log_error "unknown task: CV '$task'."
 }
