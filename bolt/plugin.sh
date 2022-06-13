@@ -34,7 +34,7 @@ function bolt_CV() {
         local filename
         for filename in cv cv-full; do
             if [ -z "$what" ] || [ "$what" = "$filename" ]; then
-                echo "=== $filename =========="
+                bolt_log "building $filename..."
                 rm $filename.dvi
                 rm $filename.ps
 
