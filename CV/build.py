@@ -1,9 +1,7 @@
 import functools
-
-from bolt import string
-from bolt import file
-
-from bolt import logging
+from abcli import string
+from abcli import file
+from abcli import logging
 import logging
 
 logger = logging.getLogger(__name__)

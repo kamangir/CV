@@ -1,3 +1,3 @@
 # CV
 
-a [bolt](https://github.com/kamangir/bolt) plugin for CV.
+an [awesome bash cli](https://github.com/kamangir/awesome-bash-cli) for muy CV.
