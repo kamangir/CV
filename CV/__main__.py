@@ -15,7 +15,7 @@ success = False
 if args.task == "build":
     success = build()
 else:
-    logger.error(f"-{name}: {args.task}: command not found")
+    logger.error(f"-{name}: {args.task}: command not found.")
 
 if not success:
-    logger.error(f"-{name}: {args.task}: failed")
+    logger.error(f"-{name}: {args.task}: failed.")
