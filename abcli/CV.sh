@@ -12,8 +12,6 @@ function abcli_CV() {
             "build CV [and commit w/ message]."
         abcli_help_line "CV clean" \
             "clean CV."
-        abcli_help_line "CV terraform" \
-            "terraform CV."
 
         if [ "$(abcli_keyword_is $2 verbose)" == true ] ; then
             python3 -m CV --help
@@ -89,11 +87,6 @@ function abcli_CV() {
         rm *.out
         rm *.ps
         popd > /dev/null
-        return
-    fi
-
-    if [ "$task" == "terraform" ] ; then
-        abcli_git terraform CV
         return
     fi
 
