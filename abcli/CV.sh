@@ -26,7 +26,11 @@ function abcli_CV() {
 
         abcli_log "building CV... $what"
 
-        pushd $abcli_path_git/CV/src > /dev/null
+        pushd $abcli_path_git/CV > /dev/null
+
+        pip3 install -e .
+
+        cd src 
 
         python3 -m CV build
 
