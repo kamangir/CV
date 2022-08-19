@@ -1,3 +1,3 @@
-name = "CV"
+VERSION = "1.33.1"
 
-version = "1.33.1"
+from CV.build import *
