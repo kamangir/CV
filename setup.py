@@ -1,11 +1,11 @@
 from setuptools import setup
 
-from CV import VERSION
+from CV import NAME, VERSION
 
 setup(
-    name="CV",
+    name=NAME,
     author="arash@kamangir.net",
     version=VERSION,
     description="My Curriculum vitae",
-    packages=["CV"],
+    packages=[NAME],
 )
