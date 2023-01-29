@@ -6,7 +6,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-parser = argparse.ArgumentParser(NAME, description=f"{NAME}-{version}")
+parser = argparse.ArgumentParser(NAME, description=f"{NAME}-{VERSION}")
 parser.add_argument("task", type=str, help="build")
 args = parser.parse_args()
 

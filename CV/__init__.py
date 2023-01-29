@@ -1,5 +1,5 @@
 NAME = "CV"
 
-VERSION = "1.36.1"
+VERSION = "1.37.1"
 
 from CV.build import *
