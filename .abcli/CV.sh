@@ -38,7 +38,8 @@ function abcli_CV() {
 
         git add _revision.tex
 
-        rm ../pdf/*.pdf
+        rm -rfv ../pdf
+        mkdir -p ../pdf
 
         local filename
         for filename in $(echo $what | tr + " ") ; do
@@ -56,7 +57,7 @@ function abcli_CV() {
 
             mv -v \
                 $filename.pdf \
-                ../pdf/$(echo $filename | tr cv arash-abadpour)
+                ../pdf/$(echo $filename | tr "cv" "arash-abadpour")
         done
 
         cd ..
