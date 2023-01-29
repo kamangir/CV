@@ -8,7 +8,7 @@ function abcli_CV() {
     local task=$(abcli_unpack_keyword $1 help)
 
     if [ $task == "help" ] ; then
-        abcli_show_usage "CV build [what=<cv+cv-full>] [commit message]" \
+        abcli_show_usage "CV build [~commit,~upload,what=<cv+cv-full>] [commit message]" \
             "build CV."
         abcli_show_usage "CV clean" \
             "clean CV."
@@ -21,6 +21,8 @@ function abcli_CV() {
 
     if [ "$task" == "build" ] ; then
         local options=$2
+        local do_commit=$(abcli_option_int "$options" commit 1)
+        local do_upload=$(abcli_option_int "$options" upload 1)
         local what=$(abcli_option "$options" what cv+cv-full)
 
         abcli_log "building CV... [$what]"
@@ -58,20 +60,23 @@ function abcli_CV() {
 
         cd ..
 
-        git add .
+        if [ "$do_commit" == 1 ] ; then
+            git add .
+            git status
 
-        git status
+            local message="${@:2}" 
+            git commit -a -m "abcli build $message"
 
-        local message="${@:2}" 
-        git commit -a -m "abcli build $message"
+            git push
+        fi
 
-        git push
-
-        cd pdf
-        local filename
-        for filename in *.pdf; do
-            aws s3 cp $filename s3://abadpour-com/cv/$filename
-        done
+        if [ "$do_upload" == 1 ] ; then
+            cd pdf
+            local filename
+            for filename in *.pdf; do
+                aws s3 cp $filename s3://abadpour-com/cv/$filename
+            done
+        fi
 
         popd  > /dev/null
         return
