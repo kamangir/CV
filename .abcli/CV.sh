@@ -57,7 +57,7 @@ function abcli_CV() {
 
             mv -v \
                 $filename.pdf \
-                ../pdf/$(echo $filename | sed 's/cv/arash-abadpour/g')
+                ../pdf/$(echo $filename | sed 's/cv/arash-abadpour-resume/g').pdf
         done
 
         cd ..
