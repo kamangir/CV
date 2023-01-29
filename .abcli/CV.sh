@@ -8,9 +8,9 @@ function abcli_CV() {
     local task=$(abcli_unpack_keyword $1 help)
 
     if [ $task == "help" ] ; then
-        abcli_help_line "CV build [cv/cv-full] [commit message]" \
+        abcli_show_usage "CV build [cv|cv-full] [commit message]" \
             "build CV [and commit w/ message]."
-        abcli_help_line "CV clean" \
+        abcli_show_usage "CV clean" \
             "clean CV."
 
         if [ "$(abcli_keyword_is $2 verbose)" == true ] ; then
