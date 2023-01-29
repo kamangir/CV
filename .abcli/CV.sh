@@ -8,7 +8,8 @@ function abcli_CV() {
     local task=$(abcli_unpack_keyword $1 help)
 
     if [ $task == "help" ] ; then
-        abcli_show_usage "CV build [~commit,~upload,what=<cv+cv-full>] [commit message]" \
+        local options="~commit,~upload,what=<cv+cv-full>"
+        abcli_show_usage "CV build$ABCUL[$options]$ABCUL[commit message]" \
             "build CV."
         abcli_show_usage "CV clean" \
             "clean CV."
