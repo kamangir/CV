@@ -8,8 +8,8 @@ function abcli_CV() {
     local task=$(abcli_unpack_keyword $1 help)
 
     if [ $task == "help" ] ; then
-        abcli_show_usage "CV build [cv|cv-full] [commit message]" \
-            "build CV [and commit w/ message]."
+        abcli_show_usage "CV build [what=<cv+cv-full>] [commit message]" \
+            "build CV."
         abcli_show_usage "CV clean" \
             "clean CV."
 
@@ -20,9 +20,10 @@ function abcli_CV() {
     fi
 
     if [ "$task" == "build" ] ; then
-        local what="$2"
+        local options=$2
+        local what=$(abcli_option "$options" what cv+cv-full)
 
-        abcli_log "building CV... $what"
+        abcli_log "building CV... [$what]"
 
         pushd $abcli_path_git/CV > /dev/null
 
@@ -37,28 +38,25 @@ function abcli_CV() {
         rm ../pdf/*.pdf
 
         local filename
-        for filename in cv cv-full; do
-            if [ -z "$what" ] || [ "$what" = "$filename" ]; then
-                abcli_log "building $filename..."
-                rm $filename.dvi
-                rm $filename.ps
+        for filename in $(echo $what | tr + " ") ; do
+            abcli_log "building $filename..."
+            rm $filename.dvi
+            rm $filename.ps
 
-                "latex" -interaction=nonstopmode $filename.tex >> $filename.latex.log
+            "latex" -interaction=nonstopmode $filename.tex >> $filename.latex.log
 
-                "makeindex" $filename.idx >> $filename.makeindex.log
+            "makeindex" $filename.idx >> $filename.makeindex.log
 
-                "dvips" -o $filename.ps $filename.dvi >> $filename.dvips.log
+            "dvips" -o $filename.ps $filename.dvi >> $filename.dvips.log
 
-                "ps2pdf" $filename.ps >> $filename.ps2pdf.log
+            "ps2pdf" $filename.ps >> $filename.ps2pdf.log
 
-                mv $filename.pdf ../pdf/
-            fi
+            mv -v \
+                $filename.pdf \
+                ../pdf/$(echo $filename | tr cv arash-abadpour)
         done
 
         cd ..
-
-        mv pdf/cv.pdf pdf/arash-abadpour-resume.pdf
-        mv pdf/cv-full.pdf pdf/arash-abadpour-resume-full.pdf
 
         git add .
 
