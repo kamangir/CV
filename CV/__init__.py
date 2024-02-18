@@ -1,5 +1,9 @@
-NAME = "CV"
+import abcli.logging
+import logging
 
-VERSION = "1.44.1"
+NAME = __name__
 
-from CV.build import *
+logger = logging.getLogger(NAME)
+
+
+VERSION = "1.46.1"

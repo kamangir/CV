@@ -1,10 +1,6 @@
 import functools
-from abcli import string
 from abcli import file
-from abcli import logging
-import logging
-
-logger = logging.getLogger(__name__)
+from CV import logger
 
 
 def build():
@@ -12,9 +8,9 @@ def build():
 
     if success:
         current_revision = [
-            float(string.split("\\space")[1])
-            for string in _revision_tex
-            if "revision" in string
+            float(item.split("\\space")[1])
+            for item in _revision_tex
+            if "revision" in item
         ]
 
         success = len(current_revision) == 1
@@ -29,9 +25,9 @@ def build():
         logger.info(f"new revision: {new_revision:.2f}")
 
         _revision_tex = [
-            string.replace(f"{current_revision:.2f}", f"{new_revision:.2f}")
-            for string in _revision_tex
-            if string
+            item.replace(f"{current_revision:.2f}", f"{new_revision:.2f}")
+            for item in _revision_tex
+            if item
         ]
         logger.info(f"_revision_tex: {'|'.join(_revision_tex)}")
 
@@ -42,8 +38,8 @@ def build():
 
     if success:
         abadpour_com_intro = [
-            string
-            for string in [
+            item
+            for item in [
                 functools.reduce(
                     lambda a, b: a.replace(b, " "),
                     [
@@ -56,19 +52,19 @@ def build():
                         "\\singlespace",
                         "{ }",
                     ],
-                    string.replace("\t", ""),
+                    item.replace("\t", ""),
                 )
-                for string in _opening_statement
-                if not string.startswith("%")
+                for item in _opening_statement
+                if not item.startswith("%")
             ]
-            if string
+            if item
         ]
 
         abadpour_com_intro = [
-            string.replace("\\href{", '<a href="')
+            item.replace("\\href{", '<a href="')
             .replace("}{", '">')
             .replace("}", "</a>")
-            for string in abadpour_com_intro
+            for item in abadpour_com_intro
         ]
 
         success = file.save_text(

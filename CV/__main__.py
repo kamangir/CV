@@ -1,10 +1,6 @@
 import argparse
-from CV import *
-from abcli import logging
-import logging
-
-logger = logging.getLogger(__name__)
-
+from CV import NAME, VERSION, logger
+from CV.build import build
 
 parser = argparse.ArgumentParser(NAME, description=f"{NAME}-{VERSION}")
 parser.add_argument("task", type=str, help="build")
