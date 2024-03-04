@@ -1,6 +1,6 @@
 import functools
 from abcli import file
-from CV import logger
+from CV.logger import logger
 
 
 def build():

@@ -1,6 +1,7 @@
 import argparse
-from CV import NAME, VERSION, logger
+from CV import NAME, VERSION
 from CV.build import build
+from CV.logger import logger
 
 parser = argparse.ArgumentParser(NAME, description=f"{NAME}-{VERSION}")
 parser.add_argument("task", type=str, help="build")

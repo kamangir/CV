@@ -1,9 +1,7 @@
-import abcli.logging
-import logging
+NAME = "CV"
 
-NAME = __name__
+ICON = "📜"
 
-logger = logging.getLogger(NAME)
+DESCRIPTION = f"{ICON} My Curriculum vitae"
 
-
-VERSION = "1.46.1"
+VERSION = "1.48.1"
