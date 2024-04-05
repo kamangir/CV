@@ -8,7 +8,7 @@ function abcli_CV() {
     local task=$(abcli_unpack_keyword $1 help)
 
     if [ $task == "help" ]; then
-        local options="~commit,~upload,what=<cv+cv-full>"
+        local options="~commit,dryrun,~upload,what=<cv+cv-full>"
         abcli_show_usage "CV build$ABCUL[$options]$ABCUL[commit message]" \
             "build CV."
         abcli_show_usage "CV clean" \
@@ -22,8 +22,9 @@ function abcli_CV() {
 
     if [ "$task" == "build" ]; then
         local options=$2
-        local do_commit=$(abcli_option_int "$options" commit 1)
-        local do_upload=$(abcli_option_int "$options" upload 1)
+        local do_dryrun=$(abcli_option_int "$options" dryrun 0)
+        local do_commit=$(abcli_option_int "$options" commit $(abcli_not $do_dryrun))
+        local do_upload=$(abcli_option_int "$options" upload $(abcli_not $do_dryrun))
         local what=$(abcli_option "$options" what cv+cv-full)
 
         abcli_log "building CV... [$what]"
@@ -43,17 +44,8 @@ function abcli_CV() {
 
         local filename
         for filename in $(echo $what | tr + " "); do
-            abcli_log "building $filename..."
-            rm $filename.dvi
-            rm $filename.ps
-
-            "latex" -interaction=nonstopmode $filename.tex >>$filename.latex.log
-
-            "makeindex" $filename.idx >>$filename.makeindex.log
-
-            "dvips" -o $filename.ps $filename.dvi >>$filename.dvips.log
-
-            "ps2pdf" $filename.ps >>$filename.ps2pdf.log
+            abcli_latex build dryrun=$do_dryrun \
+                ./$filename.tex
 
             mv -v \
                 $filename.pdf \
