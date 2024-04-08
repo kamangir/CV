@@ -47,7 +47,7 @@ function CV_build() {
         git status
 
         local message="${@:2}"
-        git commit -a -m "abcli build $message"
+        git commit -a -m "CV build $message"
 
         git push
     fi
