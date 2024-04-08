@@ -29,7 +29,13 @@ function abcli_CV() {
         return
     fi
 
+    if [ "$task" == "version " ]; then
+        python3 -m CV version "${@:2}"
+        return
+    fi
+
     abcli_log_error "-CV: $task: command not found."
+    return 1
 }
 
 abcli_source_path \
