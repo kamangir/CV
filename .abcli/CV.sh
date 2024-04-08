@@ -31,3 +31,6 @@ function abcli_CV() {
 
     abcli_log_error "-CV: $task: command not found."
 }
+
+abcli_source_path \
+    $abcli_path_git/CV/.abcli/tests
