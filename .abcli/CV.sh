@@ -24,7 +24,7 @@ function abcli_CV() {
     fi
 
     if [[ "|pylint|pytest|test|" == *"|$task|"* ]]; then
-        abcli_${task} plugin=blue_plugin,$2 \
+        abcli_${task} plugin=CV,$2 \
             "${@:3}"
         return
     fi
