@@ -9,3 +9,5 @@ CV build [dryrun,~publish,~rm,what=<cv+cv-full>]
 CV clean
  . clean CV.
 ```
+
+> ℹ️ a push to this repo triggers a `CV build publish`.
