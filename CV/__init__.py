@@ -4,4 +4,4 @@ ICON = "📜"
 
 DESCRIPTION = f"{ICON} My Curriculum vitae"
 
-VERSION = "1.73.1"
+VERSION = "1.74.1"

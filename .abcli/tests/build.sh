@@ -6,6 +6,5 @@ function test_CV_build() {
 
     abcli_eval dryrun=$do_dryrun \
         "CV build \
-        ~publish,$2 \
-        ${@:3}"
+        ${@:2}"
 }
