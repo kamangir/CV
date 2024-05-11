@@ -29,6 +29,11 @@ function abcli_CV() {
         return
     fi
 
+    if [ "$task" == "init" ]; then
+        abcli_init CV "${@:2}"
+        return
+    fi
+
     if [ "$task" == "version" ]; then
         python3 -m CV version "${@:2}"
         return

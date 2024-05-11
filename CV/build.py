@@ -3,7 +3,7 @@ from abcli import file
 from CV.logger import logger
 
 
-def build():
+def build() -> bool:
     success, _revision_tex = file.load_text("_revision.tex")
 
     if success:

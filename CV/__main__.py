@@ -14,7 +14,7 @@ args = parser.parse_args()
 success = False
 if args.task == "build":
     success = build()
-if args.task == "version":
+elif args.task == "version":
     print(f"{NAME}-{VERSION}")
     success = True
 else:

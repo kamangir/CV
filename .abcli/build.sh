@@ -4,15 +4,14 @@ function CV_build() {
     local options=$1
 
     if [ $(abcli_option_int "$options" help 0) == 1 ]; then
-        local options="~commit,dryrun,~upload,what=<cv+cv-full>"
-        abcli_show_usage "CV build$ABCUL[$options]$ABCUL[commit message]" \
+        local options="dryrun,~publish,what=<cv+cv-full>"
+        abcli_show_usage "CV build [$options]" \
             "build CV."
         return
     fi
 
     local do_dryrun=$(abcli_option_int "$options" dryrun 0)
-    local do_commit=$(abcli_option_int "$options" commit $(abcli_not $do_dryrun))
-    local do_upload=$(abcli_option_int "$options" upload $(abcli_not $do_dryrun))
+    local do_publish=$(abcli_option_int "$options" publish $(abcli_not $do_dryrun))
     local what=$(abcli_option "$options" what cv+cv-full)
 
     abcli_log "building CV... [$what]"
@@ -27,38 +26,22 @@ function CV_build() {
 
     git add _revision.tex
 
-    rm -rfv ../pdf
-    mkdir -p ../pdf
-
     local filename
+    local public_filename
     for filename in $(echo $what | tr + " "); do
         abcli_latex build dryrun=$do_dryrun \
             ./$filename.tex
 
-        mv -v \
+        [[ "$do_publish" == 0 ]] && continue
+
+        public_filename=arash-abadpour-resume
+        [[ "$filename" == *"full"* ]] && public_filename=$public_filename-full
+
+        abcli_eval dryrun=$do_dryrun \
+            aws s3 cp \
             $filename.pdf \
-            ../pdf/$(echo $filename | sed 's/cv/arash-abadpour-resume/g').pdf
+            s3://abadpour-com/cv/$public_filename.pdf
     done
-
-    cd ..
-
-    if [ "$do_commit" == 1 ]; then
-        git add .
-        git status
-
-        local message="${@:2}"
-        git commit -a -m "CV build $message"
-
-        git push
-    fi
-
-    if [ "$do_upload" == 1 ]; then
-        cd pdf
-        local filename
-        for filename in *.pdf; do
-            aws s3 cp $filename s3://abadpour-com/cv/$filename
-        done
-    fi
 
     popd >/dev/null
 }
