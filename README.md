@@ -10,4 +10,4 @@ CV clean
  . clean CV.
 ```
 
-> ℹ️ a push to this repo triggers a `CV build publish`.
+> ℹ️ a push to this repo triggers a `CV build [publish]`.
