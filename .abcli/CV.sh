@@ -11,10 +11,10 @@ function abcli_CV() {
         CV_build "$@"
         CV_clean "$@"
 
-        [[ "$(abcli_keyword_is $2 verbose)" == true ]] &&
+        $(abcli_keyword_is $2 verbose) &&
             python3 -m CV --help
 
-        return
+        return 0
     fi
 
     local function_name=CV_$task
