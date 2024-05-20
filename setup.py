@@ -9,6 +9,8 @@ with open(os.path.join(os.path.dirname(__file__), "README.md")) as f:
         "https://github.com/kamangir/CV/raw/main/",
     )
 
+with open(os.path.join(os.path.dirname(__file__), "requirements.txt")) as f:
+    requirements = f.read().strip().split("\n")
 
 setup(
     name=NAME,
@@ -18,4 +20,5 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=[NAME],
+    install_requires=requirements,
 )
