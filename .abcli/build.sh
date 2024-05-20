@@ -23,7 +23,7 @@ function CV_build() {
 
     cd src
 
-    python3 -m CV build
+    python3 -m abadpour build
 
     git add _revision.tex
 

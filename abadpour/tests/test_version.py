@@ -1,4 +1,4 @@
-from CV import VERSION
+from abadpour import VERSION
 
 
 def test_version():

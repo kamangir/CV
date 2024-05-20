@@ -12,7 +12,7 @@ function abcli_CV() {
         CV_clean "$@"
 
         $(abcli_keyword_is $2 verbose) &&
-            python3 -m CV --help
+            python3 -m abadpour --help
 
         return 0
     fi
@@ -35,7 +35,7 @@ function abcli_CV() {
     fi
 
     if [ "$task" == "version" ]; then
-        python3 -m CV version "${@:2}"
+        python3 -m abadpour version "${@:2}"
         return
     fi
 

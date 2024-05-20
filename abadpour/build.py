@@ -1,5 +1,5 @@
 from abcli import file
-from CV import VERSION
+from abadpour import VERSION
 
 
 def build() -> bool:

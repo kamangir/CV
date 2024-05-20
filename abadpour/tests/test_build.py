@@ -1,4 +1,4 @@
-from CV.build import build
+from abadpour.build import build
 
 
 def test_build():
