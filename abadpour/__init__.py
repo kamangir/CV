@@ -2,6 +2,6 @@ NAME = "abadpour"
 
 ICON = "📜"
 
-DESCRIPTION = f"{ICON} Arash Abadpour's CV"
+DESCRIPTION = f"{ICON} Arash Abadpour's CV."
 
-VERSION = "6.17.1"
+VERSION = "6.18.1"
