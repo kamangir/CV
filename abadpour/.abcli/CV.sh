@@ -13,6 +13,3 @@ function abcli_CV() {
         plugin=CV,task=$task \
         "${@:2}"
 }
-
-abcli_source_path \
-    $abcli_path_git/CV/.abcli/tests
