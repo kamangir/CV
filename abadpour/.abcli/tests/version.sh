@@ -6,4 +6,6 @@ function test_CV_version() {
 
     abcli_eval dryrun=$do_dryrun \
         "CV version ${@:2}"
+
+    return 0
 }

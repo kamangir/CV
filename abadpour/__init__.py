@@ -4,4 +4,4 @@ ICON = "📜"
 
 DESCRIPTION = f"{ICON} Arash Abadpour's CV."
 
-VERSION = "6.25.1"
+VERSION = "6.26.1"
