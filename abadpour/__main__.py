@@ -2,6 +2,7 @@ import argparse
 from abadpour import NAME, VERSION
 from abadpour.build import build
 from abadpour.logger import logger
+from blueness.argparse.generic import ending
 
 parser = argparse.ArgumentParser(NAME, description=f"{NAME}-{VERSION}")
 parser.add_argument(
@@ -18,7 +19,6 @@ elif args.task == "version":
     print(f"{NAME}-{VERSION}")
     success = True
 else:
-    logger.error(f"-{NAME}: {args.task}: command not found.")
+    success = None
 
-if not success:
-    logger.error(f"-{NAME}: {args.task}: failed.")
+ending(logger, NAME, args.task, success)
