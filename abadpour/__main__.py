@@ -2,7 +2,7 @@ import argparse
 from abadpour import NAME, VERSION
 from abadpour.build import build
 from abadpour.logger import logger
-from blueness.argparse.generic import ending
+from blueness.argparse.generic import sys_exit
 
 parser = argparse.ArgumentParser(NAME, description=f"{NAME}-{VERSION}")
 parser.add_argument(
@@ -21,4 +21,4 @@ elif args.task == "version":
 else:
     success = None
 
-ending(logger, NAME, args.task, success)
+sys_exit(logger, NAME, args.task, success)
