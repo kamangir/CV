@@ -4,11 +4,14 @@ function CV_build() {
     local options=$1
 
     if [ $(abcli_option_int "$options" help 0) == 1 ]; then
-        local options="dryrun,~publish,~rm,what=<cv+cv-full>"
-        abcli_show_usage "CV build [$options]" \
+        local options="${EOP}dryrun,~publish,~rm,what=<cv+cv-full>$EOPE"
+        local latex_options=$EOP$abcli_latex_build_options$EOPE
+        abcli_show_usage "CV build$ABCUL$options$ABCUL$latex_options" \
             "build CV."
         return
     fi
+
+    local latex_options=$2
 
     local do_dryrun=$(abcli_option_int "$options" dryrun 0)
     local do_publish=$(abcli_option_int "$options" publish $(abcli_not $do_dryrun))
@@ -17,20 +20,14 @@ function CV_build() {
 
     abcli_log "building CV... [$what]"
 
-    pushd $abcli_path_git/CV >/dev/null
-
-    pip3 install -e .
-
-    cd src
+    pushd $abcli_path_git/CV/src >/dev/null
 
     python3 -m abadpour build
-
-    git add _revision.tex
 
     local filename
     local public_filename
     for filename in $(echo $what | tr + " "); do
-        abcli_latex build dryrun=$do_dryrun \
+        abcli_latex build dryrun=$do_dryrun,$latex_options \
             ./$filename.tex
 
         if [[ "$do_publish" == 1 ]]; then
