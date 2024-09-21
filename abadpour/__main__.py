@@ -1,24 +1,17 @@
-import argparse
-from abadpour import NAME, VERSION
+from blueness.argparse.generic import main
+
+from abadpour import NAME, VERSION, DESCRIPTION, ICON
 from abadpour.build import build
 from abadpour.logger import logger
-from blueness.argparse.generic import sys_exit
 
-parser = argparse.ArgumentParser(NAME, description=f"{NAME}-{VERSION}")
-parser.add_argument(
-    "task",
-    type=str,
-    help="build|version",
+main(
+    ICON=ICON,
+    NAME=NAME,
+    DESCRIPTION=DESCRIPTION,
+    VERSION=VERSION,
+    main_filename=__file__,
+    tasks={
+        "build": lambda _: build(),
+    },
+    logger=logger,
 )
-args = parser.parse_args()
-
-success = False
-if args.task == "build":
-    success = build()
-elif args.task == "version":
-    print(f"{NAME}-{VERSION}")
-    success = True
-else:
-    success = None
-
-sys_exit(logger, NAME, args.task, success)
