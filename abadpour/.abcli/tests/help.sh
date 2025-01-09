@@ -5,10 +5,10 @@ function test_CV_help() {
 
     local module
     for module in \
-        "CV build" \
-        "CV clean" \
+        "abcli_CV build" \
+        "abcli_CV clean" \
         \
-        "CV"; do
+        "abcli_CV"; do
         abcli_eval ,$options \
             abcli_help $module
         [[ $? -ne 0 ]] && return 1
