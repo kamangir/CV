@@ -6,16 +6,18 @@
 pip install abadpour
 ```
 
-```bash
- > CV help
-CV build [dryrun,~publish,~rm,what=<cv+cv-full>]
- . build CV.
-CV clean
- . clean CV.
+```mermaid
+graph LR
+    build["CV<br>build<br>~publish"]
+    clean["CV<br>clean"]
+    CV["pdf"]:::folder
+
+    build --> CV
+    clean --> CV
+
+    classDef folder fill:#999,stroke:#333,stroke-width:2px;
 ```
 
 ---
-
-> ℹ️ a push to this repo triggers a `CV build [publish]`.
 
 [![PyPI version](https://img.shields.io/pypi/v/abadpour.svg)](https://pypi.org/project/abadpour/)
