@@ -1,14 +1,14 @@
 #! /usr/bin/env bash
 
-function test_CV_help() {
+function test_abadpour_help() {
     local options=$1
 
     local module
     for module in \
-        "abcli_CV build" \
-        "abcli_CV clean" \
+        "abadpour build" \
+        "abadpour clean" \
         \
-        "abcli_CV"; do
+        "abadpour"; do
         abcli_eval ,$options \
             abcli_help $module
         [[ $? -ne 0 ]] && return 1

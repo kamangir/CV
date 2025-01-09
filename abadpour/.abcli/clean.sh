@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-function CV_clean() {
+function abadpour_clean() {
     pushd $abcli_path_git/abadpour/src >/dev/null
     rm *.aux
     rm *.dvi

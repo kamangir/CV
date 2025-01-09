@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
 
-function abcli_CV() {
-    local task=$(abcli_unpack_keyword $1 help)
+function abadpour() {
+    local task=$(abcli_unpack_keyword $1 version)
 
     abcli_generic_task \
-        plugin=CV,task=$task \
+        plugin=abadpour,task=$task \
         "${@:2}"
 }
