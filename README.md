@@ -10,7 +10,7 @@ pip install abadpour
 graph LR
     build["CV<br>build<br>~publish"]
     clean["CV<br>clean"]
-    CV["geojson"]:::folder
+    CV["pdf"]:::folder
 
     build --> CV
     clean --> CV
