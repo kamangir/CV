@@ -2,25 +2,16 @@
 
 function CV_build() {
     local options=$1
-
-    if [ $(abcli_option_int "$options" help 0) == 1 ]; then
-        local options="${EOP}dryrun,~publish,~rm,what=<cv+cv-full>$EOPE"
-        local latex_options=$EOP$abcli_latex_build_options$EOPE
-        abcli_show_usage "CV build$ABCUL$options$ABCUL$latex_options" \
-            "build CV."
-        return
-    fi
-
-    local latex_options=$2
-
     local do_dryrun=$(abcli_option_int "$options" dryrun 0)
     local do_publish=$(abcli_option_int "$options" publish $(abcli_not $do_dryrun))
     local do_rm=$(abcli_option_int "$options" rm 1)
     local what=$(abcli_option "$options" what cv+cv-full)
 
+    local latex_options=$2
+
     abcli_log "building CV... [$what]"
 
-    pushd $abcli_path_git/CV/src >/dev/null
+    pushd $abcli_path_git/abadpour/src >/dev/null
 
     python3 -m abadpour build
 
@@ -29,6 +20,7 @@ function CV_build() {
     for filename in $(echo $what | tr + " "); do
         abcli_latex build dryrun=$do_dryrun,$latex_options \
             ./$filename.tex
+        [[ $? -ne 0 ]] && return 1
 
         if [[ "$do_publish" == 1 ]]; then
             public_filename=arash-abadpour-resume
@@ -41,7 +33,6 @@ function CV_build() {
         fi
 
         [[ "$do_rm" == 1 ]] && rm -v $filename.pdf
-
     done
 
     popd >/dev/null
