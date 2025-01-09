@@ -11,7 +11,7 @@ function abadpour_build() {
 
     abcli_log "building CV... [$what]"
 
-    pushd $abcli_path_git/abadpour/src >/dev/null
+    pushd $(python3 -m abadpour locate)/../src >/dev/null
 
     python3 -m abadpour build
 
