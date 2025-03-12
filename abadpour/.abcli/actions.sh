@@ -5,4 +5,6 @@ function abadpour_action_git_before_push() {
         return 0
 
     CV pypi build
+
+    CV build
 }

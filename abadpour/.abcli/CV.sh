@@ -7,3 +7,5 @@ function abadpour() {
         plugin=abadpour,task=$task \
         "${@:2}"
 }
+
+abcli_log $(abadpour version --show_icon 1)
