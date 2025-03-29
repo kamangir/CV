@@ -18,7 +18,7 @@ def help_build(
 
     return show_usage(
         [
-            "CV",
+            "abadpour",
             "build",
             f"[{options}]",
             f"[{latex_build_options(mono=mono)}]",
@@ -34,7 +34,7 @@ def help_clean(
 ) -> str:
     return show_usage(
         [
-            "CV",
+            "abadpour",
             "clean",
         ],
         "clean CV.",
