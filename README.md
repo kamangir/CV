@@ -1,6 +1,6 @@
 # 📜 abadpour
 
-📜 `abadpour` is an [`abcli`](https://github.com/kamangir/awesome-bash-cli) plugin for my CV/resume, in two versions: [compact](./arash-abadpour-resume.pdf) and [full](./arash-abadpour-resume-full.pdf).
+📜 `abadpour` is an [`abcli`](https://github.com/kamangir/awesome-bash-cli) plugin for my CV/resume, in two versions: [compact](./pdf/arash-abadpour-resume.pdf) and [full](./pdf/arash-abadpour-resume-full.pdf).
 
 ```bash
 pip install abadpour
