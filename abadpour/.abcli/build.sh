@@ -26,7 +26,7 @@ function abadpour_build() {
         [[ "$filename" == *"full"* ]] && public_filename=$public_filename-full
 
         cp -v $filename.pdf \
-            $abcli_path_git/abadpour/$public_filename.pdf
+            $abcli_path_git/abadpour/pdf/$public_filename.pdf
 
         [[ "$do_rm" == 1 ]] && rm -v $filename.pdf
     done
