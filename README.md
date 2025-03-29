@@ -8,7 +8,7 @@ pip install abadpour
 
 ```mermaid
 graph LR
-    build["CV<br>build<br>~publish"]
+    build["CV<br>build<br>push"]
     clean["CV<br>clean"]
     CV["pdf"]:::folder
 
