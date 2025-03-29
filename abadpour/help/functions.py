@@ -12,7 +12,7 @@ def help_build(
     mono: bool,
 ) -> str:
     options = xtra(
-        "dryrun,~publish,~rm,what=<cv+cv-full>",
+        "dryrun,push,~rm,what=<cv+cv-full>",
         mono=mono,
     )
 
