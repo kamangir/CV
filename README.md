@@ -1,6 +1,6 @@
-# 📜 CV
+# 📜 abadpour
 
-📜 `CV` is an [`abcli`](https://github.com/kamangir/awesome-bash-cli) plugin for my CV, in two versions: [compact](./arash-abadpour-resume.pdf) and [full](./arash-abadpour-resume-full.pdf).
+📜 `abadpour` is an [`abcli`](https://github.com/kamangir/awesome-bash-cli) plugin for my CV/resume, in two versions: [compact](./arash-abadpour-resume.pdf) and [full](./arash-abadpour-resume-full.pdf).
 
 ```bash
 pip install abadpour
@@ -8,12 +8,12 @@ pip install abadpour
 
 ```mermaid
 graph LR
-    build["CV build push"]
-    clean["CV clean"]
-    CV["pdf"]:::folder
+    build["abadpour build push"]
+    clean["abadpour clean"]
+    pdf["pdf"]:::folder
 
-    build --> CV
-    clean --> CV
+    build --> pdf
+    clean --> pdf
 
     classDef folder fill:#999,stroke:#333,stroke-width:2px;
 ```

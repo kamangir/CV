@@ -9,7 +9,7 @@ function abadpour_build() {
 
     local latex_options=$2
 
-    abcli_log "building CV... [$what]"
+    abcli_log "building $what ..."
 
     pushd $(python3 -m abadpour locate)/../src >/dev/null
 
@@ -26,7 +26,7 @@ function abadpour_build() {
         [[ "$filename" == *"full"* ]] && public_filename=$public_filename-full
 
         cp -v $filename.pdf \
-            $abcli_path_git/CV/$public_filename.pdf
+            $abcli_path_git/abadpour/$public_filename.pdf
 
         [[ "$do_rm" == 1 ]] && rm -v $filename.pdf
     done
@@ -35,7 +35,7 @@ function abadpour_build() {
 
     [[ "$do_push" == 1 ]] &&
         abcli_git \
-            CV \
+            abadpour \
             push \
             "rebuild"
 

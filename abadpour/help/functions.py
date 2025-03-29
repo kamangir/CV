@@ -23,7 +23,7 @@ def help_build(
             f"[{options}]",
             f"[{latex_build_options(mono=mono)}]",
         ],
-        "build CV.",
+        "build.",
         mono=mono,
     )
 
@@ -37,7 +37,7 @@ def help_clean(
             "abadpour",
             "clean",
         ],
-        "clean CV.",
+        "clean.",
         mono=mono,
     )
 
